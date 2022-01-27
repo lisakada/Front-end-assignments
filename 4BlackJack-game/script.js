@@ -169,35 +169,3 @@ function showWinner(winner) {
   document.querySelector("#blackjack-result").textContent = message;
  }
 
-function blackjackDeal() {
-  if (blackjackGame["isTurnsOver"] === true) {
-    // Selecting all the images in both the user and dealer box
-    let yourImages = document
-      .querySelector("#your-box")
-      .querySelectorAll("img");
-    let dealerImages = document
-      .querySelector("#dealer-box")
-      .querySelectorAll("img");
-
-    document.querySelector("#blackjack-result").style.color = "white";
-
-    //Sets the user and dealers scors to zero
-    YOU["score"] = DEALER["score"] = 0;
-    document.querySelector("#your-blackjack-result").textContent = 0;
-    document.querySelector("#dealer-blackjack-result").textContent = 0;
-   
-    //Removes the cards in the user's box
-    for (let i = 0; i < yourImages.length; i++) {
-      yourImages[i].remove();
-      dealerImages[i].remove();
-    }
-
-    blackjackGame["isStand"] = false;
-    blackjackGame.pressOnce = false;
-    blackjackGame["isTurnsOver"] = false;
-  }
-}
-
-function blackjackRestart() {
-  blackjackDeal();
-}
